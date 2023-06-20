@@ -1,0 +1,408 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	background-color: white;
+	color: black;
+	font-size: 14px;
+	font-family: Helvetica, sans-serif;
+	overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+	/* Estilos para pantallas pequeñas */
+}
+
+/* Estilos para pantallas más grandes */
+@media screen and (min-width: 601px) {
+	/* Estilos para pantallas más grandes */
+}
+#badges {
+	position: relative;
+	display: block;
+
+	& > div {
+		position: absolute;
+		right: 0px;
+	}
+	#sharebuttons {
+		float: right;
+		margin: 5px;
+	}
+}
+
+a {
+	color: white;
+	&:hover {
+		color: white;
+	}
+	img {
+		border: none;
+	}
+}
+
+header {
+	background-color: rgb(221, 219, 122);
+	border-bottom: 3px solid white;
+	height: 70px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	position: absolute;
+}
+
+#logo {
+	width: 183px;
+	height: 79px;
+	text-decoration: none;
+}
+
+#logo1 {
+	width: 140px;
+	height: auto;
+	text-decoration: none;
+	margin-left: 10px;
+	margin-right: -5px;
+}
+#buttonshare{
+	background-image: "share-button-icon.png";
+}
+
+.social-link {
+	text-decoration: none;
+}
+
+.social-icon {
+	height: 35px;
+	width: auto;
+	margin-right: -670px; /* Ajusta la distancia al logo según tus necesidades */
+	margin-left: 680px;
+}
+  
+  
+footer {
+	position: absolute;
+	bottom: 0px;
+	padding: 4px;
+	font-size: 13px;
+
+	a {
+		color: black;
+		&:hover {
+			color: black;
+		}
+	}
+}
+
+::selection {
+	background: white;
+	color: black;
+}
+::-moz-selection {
+	background: white;
+	color: black;
+}
+::-webkit-scrollbar {
+	width: 18px;
+	height: 18px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: white;
+	border: 1px solid white;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: white;
+	border: 1px solid white;
+}
+::-webkit-scrollbar-track {
+	background-color: white;
+}
+::-webkit-scrollbar-corner {
+	background-color: white;
+}
+
+
+#container {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#chatWindow {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	background-image: white;
+	overflow: hidden;
+}
+#chatMain {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: -3000000px; /*barra blanca que no sé pq aparece*/
+	bottom: 80px;
+	overflow-y: scroll;
+	overflow-x: none;
+
+	#chatMainDiv {
+		padding: 3px;
+		padding-bottom: 23px;
+		font-size: 14px;
+		margin-top: 65px;
+		color:black;
+		border-radius: 3px;
+
+		& > div {
+			padding: 2px;
+		}
+	}
+}
+
+
+#panelRow {
+	background-color: white;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 80px;
+}
+
+#disconnectButton {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 112px;
+	padding: auto;
+	margin: 0px;
+	color: black;
+	background-color: white; 
+	background-image: white;
+	border: 1px solid black; /*stop*/
+	font-size: 14px;
+	font-family: Arial, sans-serif;
+	-webkit-border-radius: 0px 0px 0px 4px;
+	-moz-border-radius: 0px 0px 0px 4px;
+	border-radius: 0px 0px 0px 4px;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		background-color: blue; /*cambia al hacer click*/
+		background-image: blue;
+		color: white;
+	}
+	&:disabled {
+		background-color: white; /*botón stop */
+		background-image: white;
+		color: black;
+	}
+}
+#chatAreaWrap {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 112px;
+	padding: 4px;
+
+	#chatArea {
+		margin: 0px;
+		padding: 4px;
+		width: 100%;
+		height: 100%;
+		border: none;
+		resize: none;
+		display: block;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		background-color: white;
+		color: black;
+		font-family: Arial, sans-serif;
+		font-size: 14px;
+		-webkit-border-radius: 0px 0px 0px 4px;
+		-moz-border-radius: 0px 0px 0px 4px;
+		border-radius: 0px 0px 0px 4px;
+		border: 1px solid black;
+		padding: auto;
+		margin: 0px;
+
+		&:disabled {
+			background: white;
+			color: #CCC;
+		}
+	}
+}
+
+textarea:focus {
+	outline: none;
+}
+
+#isTypingDiv {
+	position: absolute;
+	bottom: 80px;
+	width: 100%;
+	height: 18px;
+	padding-left: 3px;
+	padding-top: 2px;
+	font-size: 14px;
+	color: black;
+	background-color: rgb(221, 219, 122);
+	text-decoration: none;
+	-webkit-transition: bottom .1s ease-in-out;
+	-moz-transition: bottom .1s ease-in-out;
+	transition: bottom .1s ease-in-out;
+}
+
+.strangerChat {
+	color: #F64;
+	font-weight: bold;
+}
+.youChat {
+	color: #49F;
+	font-weight: bold;
+}
+.consoleChat {
+	font-weight: bold;
+	color: black;
+}
+
+.logo img{
+	width: 90px;
+	height: auto;
+	margin-right: 100px;
+	margin-top:5px;	
+}
+	.image-container {
+		float: left;
+		margin-right: 10px; /* Ajusta el margen derecho según tus necesidades */
+	}
+
+	.image-container img {
+		width: 100px; /* Ajusta el valor según tus necesidades */
+		height: auto;
+		max-width: 100%; /* Ajusta el ancho máximo según tus necesidades */
+	}
+
+	.facebook-share-button {
+		text-decoration: none;
+	}
+
+	.clearfix::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+
+
+#peopleOnlineSection {
+		position: absolute;
+		margin-left: 500px;
+		margin-top: 20px;
+		background-color:black;
+		font-size: 200px;
+		padding: 2px;
+		color: black;
+	}
+#peopleOnlineSection {
+	position: absolute;
+	margin-left: 500px;
+	margin-top: 20px;
+	background-color: rgb(221, 219, 122);
+	font-size: 20px;
+	padding: 2px;
+	color: black;
+}
+
+#welcomeScreen {
+	width: 100%;
+	height: 100%;
+	display: block;
+	background-color: white;
+}
+
+
+
+#startButtonDiv {
+	position: absolute;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+
+	& > div {
+		position: relative;
+		top: 40%;
+	}
+	#description {
+		color: black;
+		font-size: 15px;
+	}
+
+}
+
+#startButtonvideo{
+	background: url("../img/video.png") no-repeat center/cover;
+	font-weight: bold;
+	width: 124px;
+    height: 50px;
+	border-radius: 5px;
+	color: black;
+	cursor: pointer;
+	margin-left: -500px;
+	margin-right: 0px;
+
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		background-color: white;
+	}
+	&:active {
+		background-color: rgb(255, 255, 255);
+		color: black;
+	}
+	&:disabled {
+		background-color: white;
+		background-image: white;
+		color: black;
+		text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+		border-color: white;
+		cursor: default;
+	}
+}
+
+#startButton {
+	background: url("../img/text.png") no-repeat center/cover;
+	font-weight: bold;
+	width: 124px;
+    height: 50px;
+	border-radius: 8px;
+	color: black;
+	cursor: pointer;
+	margin-left: 50px;
+	margin-right: 550px; /*cambiar distancia entre los botones*/
+
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		background-color: white;
+	}
+	&:active {
+		background-color: rgb(255, 255, 255);
+		color: black;
+	}
+	&:disabled {
+		background-color: white;
+		background-image: white;
+		color: black;
+		text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+		border-color: white;
+		cursor: default;
+	}
+}

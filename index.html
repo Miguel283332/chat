@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head> <!--título en la barra de arriba de la página-->
+	<meta charset="utf-8">
+	<title>Epsile: Talk to strangers!</title>
+	<script>
+		// Obtener la dirección IP del usuario
+		function obtenerDireccionIP() {
+		  return fetch('https://api.ipify.org/?format=json')
+			.then(response => response.json())
+			.then(data => data.ip)
+			.catch(error => {
+			  console.error('Error al obtener la dirección IP:', error);
+			});
+		}
+	
+		// Comprobar si la dirección IP está en la lista de IPs prohibidas
+		function comprobarIPProhibida(ip) {
+		  return fetch('banned-ips.txt')
+			.then(response => response.text())
+			.then(data => {
+			  const ipsProhibidas = data.split('\n');
+			  return ipsProhibidas.includes(ip);
+			})
+			.catch(error => {
+			  console.error('Error al leer el archivo de IPs prohibidas:', error);
+			});
+		}
+	
+		// Redirigir a la página "banned.html" si la IP está prohibida
+		function redirigirSiIPProhibida() {
+		  obtenerDireccionIP()
+			.then(ip => comprobarIPProhibida(ip))
+			console.log("Funciona")
+			.then(esProhibida => {
+			  if (esProhibida) {
+				window.location.href = 'banned.html';
+			  }
+			});
+		}
+	
+		// Ejecutar la función al cargar la página
+		redirigirSiIPProhibida();
+	  </script>
+	<link rel="icon" type="image/png" href="img/epsile_logo16.png">
+	<link rel="stylesheet/less" type="text/css" href="style/style.less">
+	<script>
+		var less = {
+			env: "development"
+		};
+	</script>
+	<script src="js/lib/less-1.7.0.min.js"></script>
+</head>
+<body>
+
+<section id="container">  <!--contenido de la página-->
+	<section id="chatWindow"> <!--pantalla principal-->
+		<header>
+			<a href="./">
+			  <img src="/img/epsile_text.png" id="logo">
+			</a>
+			<a href="./">
+				<img src="/img/txt-talktostrangers.png" id="logo1">
+			  </a>
+			<a href="https://facebook.com/share" class="social-link">
+			  <img src="img/facebook-share-button-icon.png" class="social-icon">
+			</a>
+			<a href="https://twitter.com/share" class="social-link">
+			  <img src="img/twitter-share-button-icon.png" class="social-icon">
+			</a>
+			<a href="https://www.reddit.com/share" class="social-link">
+			  <img src="img/reddit-share-button-icon.png" class="social-icon">
+			</a>
+			<a class="social-link">
+			<input type="image" class="social-icon" src="img/sharing-button-icon.png" alt="Botón" onclick="copyToClipboard('epsile.com')">
+			</a>
+		  </header>
+		<section id="chatMain"> <!--pantalla del chat-->
+			<header>
+				<a href="./">
+				  <img src="/img/epsile_text.png" id="logo">
+				</a>
+				<a href="./">
+					<img src="/img/txt-talktostrangers.png" id="logo1">
+				  </a>
+				<a href="https://facebook.com/share" class="social-link">
+				  <img src="img/facebook-share-button-icon.png" class="social-icon">
+				</a>
+				<a href="https://twitter.com/share" class="social-link">
+				  <img src="img/twitter-share-button-icon.png" class="social-icon">
+				</a>
+				<a href="https://www.reddit.com/share" class="social-link">
+				  <img src="img/reddit-share-button-icon.png" class="social-icon">
+				</a>
+				<a class="social-link">
+				<input type="image" class="social-icon" src="img/sharing-button-icon.png" alt="Botón" onclick="copyToClipboard('epsile.com')">
+				</a>
+			  </header>
+			<div id="chatMainDiv"></div>
+		</section>
+		<div id="isTypingDiv" class="consoleChat">Stranger&nbsp;is&nbsp;typing...</div>
+		<section id="panelRow">
+			<input type=button value="Disconnect" id="disconnectButton" disabled>
+			<div id="chatAreaWrap">
+				<textarea id="chatArea" disabled="disabled"></textarea>
+			</div>
+		</section>
+	
+		<section id="peopleOnlineSection">
+			<span id="peopleOnlineSpan">0</span> online
+		</section>
+	</section>
+
+	<section id="welcomeScreen">
+	
+		<section id="startButtonDiv"><div>
+			<div id="description">
+				Epsile is a simple open-source clone of Omegle, where people get connected to other people, in a one-to-one chat.<br>
+				If everyone is paired up, you must wait until someone finish a conversation. Chats are anonymous,<br>
+				meaning that the strangers you chat with don't know anything about you (unless you describe yourself).
+			</div>
+			<br>
+			<input type=button value="" onclick="Epsile.startChat();" class="button" id="startButton" disabled>
+			<input type=button value="" onclick="Epsile.startvideoChat();" class="button" id="startButtonvideo" disabled>
+		</div></section>
+		<script>
+        function copyToClipboard(text) {
+            // Crear un elemento de texto temporal
+            var tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+
+            // Seleccionar el contenido del campo de texto
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+            // Copiar el texto al portapapeles
+            document.execCommand("copy");
+
+            // Eliminar el elemento de texto temporal
+            document.body.removeChild(tempInput);
+
+            // Mostrar un mensaje de éxito
+            alert("Texto copiado al portapapeles: " + text);
+        }
+    </script>
+		<header>
+			<a href="./">
+			  <img src="/img/epsile_text.png" id="logo">
+			</a>
+			<a href="./">
+				<img src="/img/txt-talktostrangers.png" id="logo1">
+			  </a>
+			<a href="https://facebook.com/share" class="social-link">
+			  <img src="img/facebook-share-button-icon.png" class="social-icon">
+			</a>
+			<a href="https://twitter.com/share" class="social-link">
+			  <img src="img/twitter-share-button-icon.png" class="social-icon">
+			</a>
+			<a href="https://www.reddit.com/share" class="social-link">
+			  <img src="img/reddit-share-button-icon.png" class="social-icon">
+			</a>
+			<a class="social-link">
+			<input type="image" class="social-icon" src="img/sharing-button-icon.png" alt="Botón" onclick="copyToClipboard('epsile.com')">
+			</a>
+		  </header>
+		  
+		<footer>
+			Check out the <a href="https://github.com/daniel-j/epsile" target="_blank">code on github</a> - uses <a href="http://socket.io/" target="_blank">socket.io</a> and <a href="http://expressjs.com/" target="_blank">express</a> - &copy; 2023
+		</footer>
+	
+	</section>
+</section>
+
+<audio id="alertSound">
+	<source src="media/alert.ogg" />
+	<source src="media/alert.mp3" />
+</audio>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/epsile.js"></script>
+</body>
+</html>
